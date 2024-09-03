@@ -1,0 +1,520 @@
+/* -----------------------------------------------[ App.css ]------------------------------------------- */
+
+.container-fluid {
+  width: 100%;
+  display: flex;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+}
+
+.container-fluid > div:nth-child(2) {
+  width: 100%;
+}
+
+.main-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* -----------------------------------------------[ App.css ]------------------------------------------- */
+
+/* -----------------------------------------------[ nav.css ]------------------------------------------- */
+nav {
+  width: 100%;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #181818;
+  color: whitesmoke;
+  padding: 12px;
+}
+
+nav > div:nth-child(1) {
+  display: flex;
+  gap: 12px;
+}
+nav img {
+  width: 30px;
+  height: 25px;
+  border-radius: 50px;
+}
+
+nav .website-selection {
+  display: flex;
+  border: 1px solid grey;
+}
+
+nav .website-selection input[type="text"] {
+  color: white;
+  background-color: #181818;
+  padding: 5px 15px;
+  border-radius: 0px;
+  border: none;
+}
+
+nav .website-selection > button {
+  color: white;
+  background-color: #181818;
+  border: none;
+  border-left: 1px solid grey;
+}
+
+nav .website-selection > button:hover {
+  color: white;
+  background-color: blueviolet;
+}
+
+/* -----------------------------------------------[ nav.css ]------------------------------------------- */
+
+/* -----------------------------------------------[ chat.css ]------------------------------------------- */
+
+.chat-component {
+  width: 60%;
+  margin: 0px auto;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  padding: 12px;
+  text-align: center;
+}
+
+.chat-form {
+  display: flex;
+  width: 100%;
+  margin: auto;
+  border-radius: 50px;
+  border: 1px solid black;
+  padding: 12px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.chat-form input {
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+}
+.chat-form input:focus {
+  outline: none;
+}
+
+.chat-form button {
+  border-radius: 50px;
+  padding: 0px 12px;
+}
+.chat-form button:hover {
+  background-color: blueviolet;
+  color: white;
+}
+
+.messages-container {
+  width: 100%;
+  margin: auto;
+  padding: 10px;
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 60vh;
+}
+
+.message-container {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.message-container.user {
+  justify-content: flex-end;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+}
+
+.message {
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 70%;
+  word-wrap: break-word;
+  margin: 0 50px;
+  background-color: #e0e0e0;
+  color: black;
+}
+
+.message.user {
+  background-color: #f1f1f1;
+  color: black;
+  align-self: flex-end;
+  text-align: right;
+}
+
+.message.bot {
+  background-color: #f1f1f1;
+  color: black;
+  align-self: flex-start;
+  text-align: left;
+}
+
+.message-container.user .profile-image {
+  right: 0;
+}
+
+.message-container.bot .profile-image {
+  left: 0;
+}
+
+/* -----------------------------------------------[ chat.css ]------------------------------------------- */
+
+/* -----------------------------------------------[ sidebar.css ]------------------------------------------- */
+
+.sidebar {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #181818;
+  color: white;
+  overflow-x: hidden;
+  transition: width 0.8s ease;
+  transform: translateX(-100%);
+}
+
+.sidebar.closed {
+  width: 60px;
+  transform: translateX(0%);
+}
+
+.sidebar.open {
+  transform: translateX(0%);
+}
+
+.hamburger {
+  padding: 15px;
+  cursor: pointer;
+  background-color: #2a2a2a;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.hamburger:hover {
+  background-color: blueviolet;
+  color: white;
+}
+
+.sidebar-content {
+  height: 90vh;
+  padding: 15px;
+}
+
+.sidebar-content.closed {
+  display: none;
+}
+
+.sidebar-content.open {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar-content h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #888;
+}
+
+.sidebar-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-content ul li {
+  margin: 10px 0;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+}
+
+.sidebar-content ul li:hover {
+  color: yellow;
+}
+
+.sidebar-content > div:nth-child(3) {
+  position: relative;
+  bottom: 0px;
+}
+
+.profile-settings {
+  border: 1px solid gray;
+}
+
+.profile-settings,
+.sidebar-content li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  border-radius: 12px;
+}
+
+.profile-settings:hover,
+.sidebar-content li:hover {
+  background-color: #2a2a2a;
+  color: yellow;
+  cursor: pointer;
+}
+
+/* -----------------------------------------------[ sidebar.css ]------------------------------------------- */
+
+/* -----------------------------------------------[ settings.css ]------------------------------------------- */
+
+.settings {
+  width: 100%;
+  margin: 54px auto;
+}
+
+.profile-section {
+  width: 80%;
+  margin: auto;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  padding: 15px;
+}
+.profile-section > h2 {
+  border-bottom: 1px solid grey;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+.profile-section .profile-section-inputs {
+  display: flex;
+  margin-bottom: 15px;
+  padding: 30px 15px;
+}
+
+.profile-section-image img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-section-image .placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+  margin-left: 20px;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+}
+
+.profile-actions button {
+  padding: 6px 12px;
+}
+
+/* -----------------------------------------------[ settings.css ]------------------------------------------- */
+
+/* -----------------------------------------------[ not-found.css ]------------------------------------------- */
+
+.not-found-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  font-family: "Arial", sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+.not-found-content {
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.not-found-content h1 {
+  font-size: 8rem;
+  margin: 0;
+  color: #2a2a2a;
+}
+
+.not-found-content h2 {
+  font-size: 2rem;
+  margin: 10px 0;
+  color: #333;
+}
+
+.not-found-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.back-home-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #2a2a2a;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.back-home-button:hover {
+  background-color: grey;
+}
+
+/* -----------------------------------------------[ not-found.css ]------------------------------------------- */
+
+/* -----------------------------------------------[ dashboard.css ]------------------------------------------- */
+.dashboard {
+  margin: 50px 0px;
+  padding: 15px;
+}
+
+.dashboard > div:nth-child(1) {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.dashboard-card {
+  width: 100%;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  text-align: center;
+  background-color: white;
+  border-radius: 8px;
+  padding: 15px 0px;
+}
+
+.dashboard-card > h3 {
+  padding: 15px;
+  color: blueviolet;
+}
+
+.dashboard .chat-history {
+  width: 80%;
+  margin: 50px auto;
+  height: 55vh;
+  overflow-y: auto;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.chat-history h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.chat-history table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.chat-history table th,
+.chat-history table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.chat-history table th {
+  background-color: blueviolet;
+  color: #fff;
+  font-weight: bold;
+}
+
+.chat-history table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.chat-history table td:last-child {
+  display: flex;
+  gap: 15px;
+  color: #333;
+}
+
+.chat-history button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  color: gray;
+  cursor: pointer;
+}
+
+.chat-history button:nth-child(1) svg {
+  color: green;
+}
+
+.chat-history button:nth-child(2) svg {
+  color: red;
+}
+
+.chat-history button:hover {
+  background-color: white;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.chat-history button:focus {
+  outline: none;
+}
+
+/* -----------------------------------------------[ dashboard.css ]------------------------------------------- */
+
+/* -----------------------------------------------[ CTA.css ]------------------------------------------- */
+.cta {
+  text-align: center;
+}
+
+.cta img {
+  width: 50px;
+  height: 50px;
+  margin: 15px 0px;
+  border-radius: 50px;
+}
+.cta h3 {
+  font-weight: 600;
+}
+.cta p {
+  width: 50%;
+  margin: auto;
+  color: grey;
+  font-weight: 600;
+}
+
+/* -----------------------------------------------[ CTA.css ]------------------------------------------- */
