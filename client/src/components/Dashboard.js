@@ -18,20 +18,13 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchChatHistory = async () => {
       try {
-        const userId = JSON.parse(localStorage.getItem("userId"));
-        if (!userId) {
-          console.error("User ID not found in local storage.");
-          return;
-        }
-
         const response = await fetch(
           `${process.env.REACT_APP_BACKEND_URL}/api/dashboard`,
           {
-            method: "POST",
+            method: "GET",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ userId }),
           }
         );
 
