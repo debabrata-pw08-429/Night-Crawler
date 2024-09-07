@@ -6,6 +6,7 @@ import Dashboard from "./components/Dashboard";
 import NotFound from "./components/NotFound";
 import Settings from "./components/Settings";
 import CTA from "./components/CTA";
+import { SkeletonTheme } from "react-loading-skeleton";
 import "./App.css";
 
 /**
@@ -51,10 +52,12 @@ const App = () => {
   };
 
   return (
-    <div className="container-fluid">
-      <Sidebar setView={setView} />
-      <div className="main-component">{renderComponent()}</div>
-    </div>
+    <SkeletonTheme baseColor="#e0e0e0" highlightColor="#f5f5f5">
+      <div className="container-fluid">
+        <Sidebar setView={setView} />
+        <div className="main-component">{renderComponent()}</div>
+      </div>
+    </SkeletonTheme>
   );
 };
 
