@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { GrView } from "react-icons/gr";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 /**
  * Dashboard Component
@@ -66,57 +68,65 @@ const Dashboard = () => {
     <div className="dashboard">
       <div className="dashboard-stats">
         <div className="dashboard-card">
-          <h3>{generalData.total_queries || 0}</h3>
+          <h3>{generalData.total_queries || <Skeleton />}</h3>
           <p>Total Queries</p>
         </div>
         <div className="dashboard-card">
-          <h3>{generalData.unique_websites || 0}</h3>
+          <h3>{generalData.unique_websites || <Skeleton />}</h3>
           <p>Unique Websites Crawled</p>
         </div>
         <div className="dashboard-card">
-          <h3>{generalData.most_crawled || "N/A"}</h3>
+          <h3>{generalData.most_crawled || <Skeleton />}</h3>
           <p>Most Crawled</p>
         </div>
       </div>
       <div className="chat-history">
         <h3>Chat History</h3>
-        <div>
-          <table>
-            <thead>
-              <tr>
-                <th>Date/Time</th>
-                <th>User Name</th>
-                <th>Website URL</th>
-                <th>No. of Queries</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {chatHistory.map((chat) => (
-                <tr key={chat.conversationId}>
-                  <td>{chat.dateTime}</td>
-                  <td>{chat.userName}</td>
-                  <td>{chat.websiteURL}</td>
-                  <td>{chat.queries}</td>
-                  <td>
-                    <button
-                      onClick={() => handleViewChat(chat.userName)}
-                      aria-label={`View chat from ${chat.userName}`}
-                    >
-                      <GrView />
-                    </button>
-                    <button
-                      onClick={() => handleDeleteChat(chat.userName)}
-                      aria-label={`Delete chat from ${chat.userName}`}
-                    >
-                      <RiDeleteBin6Line />
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        {chatHistory.length > 1 ? (
+          <>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Date/Time</th>
+                    <th>User Name</th>
+                    <th>Website URL</th>
+                    <th>No. of Queries</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {chatHistory.map((chat) => (
+                    <tr key={chat.conversationId}>
+                      <td>{chat.dateTime}</td>
+                      <td>{chat.userName}</td>
+                      <td>{chat.websiteURL}</td>
+                      <td>{chat.queries}</td>
+                      <td>
+                        <button
+                          onClick={() => handleViewChat(chat.userName)}
+                          aria-label={`View chat from ${chat.userName}`}
+                        >
+                          <GrView />
+                        </button>
+                        <button
+                          onClick={() => handleDeleteChat(chat.userName)}
+                          aria-label={`Delete chat from ${chat.userName}`}
+                        >
+                          <RiDeleteBin6Line />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
+        ) : (
+          <>
+            <Skeleton count={13} />
+          </>
+        )}
       </div>
     </div>
   );
